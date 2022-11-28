@@ -8,13 +8,13 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class HeroService {
-  private heroesUrl = 'localhost:3000/hero';
+  private heroesUrl = 'http://localhost:3000/hero';
   
   getHeroes = (): Observable<Hero[]> => {
     return this.http.get<Hero[]>(this.heroesUrl);
   }
 
-  getHero = (id: number): Observable<Hero> => {
+  getHero = (id: string): Observable<Hero> => {
     const newUrl = this.heroesUrl + `/${id}` ;
     return this.http.get<Hero>(newUrl)
   }
